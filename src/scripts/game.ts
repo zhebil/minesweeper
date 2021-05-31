@@ -1,7 +1,7 @@
-import 'phaser'
+import * as Phaser from 'phaser';
 
-const DEFAULT_WIDTH = 1280
-const DEFAULT_HEIGHT = 720
+const DEFAULT_WIDTH = 1280;
+const DEFAULT_HEIGHT = 720;
 
 const config = {
   type: Phaser.AUTO,
@@ -11,10 +11,10 @@ const config = {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
     width: DEFAULT_WIDTH,
-    height: DEFAULT_HEIGHT
-  }
-}
+    height: DEFAULT_HEIGHT,
+  },
+};
 
 window.addEventListener('load', () => {
-  const game = new Phaser.Game(config)
-})
+  const game = new Phaser.Game(config);
+});

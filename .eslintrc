@@ -1,0 +1,36 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "commonjs": true
+  },
+
+  "extends": ["htmlacademy/es6", "plugin:@typescript-eslint/recommended"],
+  "rules": {
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "never",
+        "exports": "always-multiline",
+        "functions": "never"
+      }
+    ],
+    "curly": ["error", "all"],
+    "object-curly-spacing": ["error", "always"],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "camelcase": ["error", { "properties": "never" }],
+    "arrow-parens": ["error", "as-needed"],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "indent": ["error", 2, { "SwitchCase": 1 }]
+  },
+  "ignorePatterns": ["node_modules/", "build/", "**/*.js"]
+}
