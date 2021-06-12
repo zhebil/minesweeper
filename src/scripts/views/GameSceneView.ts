@@ -7,7 +7,7 @@ enum Texts {
   Flags = 'FLAGS: ',
   Exit = 'EXIT',
   Success = 'YOU WIN!',
-  Failure = 'YOU LOOSE',
+  Failure = 'YOU LOSE',
   Restart = 'RESTART',
 }
 
