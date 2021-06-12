@@ -24,6 +24,7 @@
         "functions": "never"
       }
     ],
+    "no-shadow": "off",
     "curly": ["error", "all"],
     "object-curly-spacing": ["error", "always"],
     "quotes": ["error", "single", { "allowTemplateLiterals": true }],

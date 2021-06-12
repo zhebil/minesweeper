@@ -5,7 +5,7 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: ['./src/scripts/game.ts', './webpack/credits.js'],
+  entry: ['./src/scripts/index.ts', './webpack/credits.js'],
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].bundle.js',
@@ -17,9 +17,20 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$|\.jsx?$/,
-        include: path.join(__dirname, '../src'),
-        loader: 'ts-loader',
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg|xml)$/i,
+        use: 'file-loader',
       },
     ],
   },
@@ -36,9 +47,13 @@ module.exports = {
     },
   },
   plugins: [
+    new webpack.DefinePlugin({
+      CANVAS_RENDERER: JSON.stringify(true),
+      WEBGL_RENDERER: JSON.stringify(true),
+    }),
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
-      gameName: 'My Phaser Game',
+      gameName: 'Minesweeper',
       template: 'src/index.html',
     }),
     new CopyWebpackPlugin({
